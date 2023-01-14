@@ -6,25 +6,22 @@ from authomatic.providers import oauth2
 import app_secrets
 
 CONFIG = {
-    
     'facebook': {
-           
         'class_': oauth2.Facebook,
         'short_name': 1,
         
-        'consumer_key': app_secrets.FACEBOOK_APP_ID, # App ID
-        'consumer_secret': app_secrets.FACEBOOK_APP_SECRET, # App Secret
+        'consumer_key': app_secrets.FACEBOOK_APP_ID,
+        'consumer_secret': app_secrets.FACEBOOK_APP_SECRET,
         
         'scope': ['email'],
     },
     
-    'google': {
-           
+    'google': {           
         'class_': oauth2.Google,
         'short_name': 2,
 
-        'consumer_key': app_secrets.GOOGLE_APP_ID,
-        'consumer_secret': app_secrets.GOOGLE_APP_SECRET,
+        'consumer_key': app_secrets.GOOGLE_OAUTH2_CLIENT_ID,
+        'consumer_secret': app_secrets.GOOGLE_OAUTH2_CLIENT_SECRET,
         
         'scope': ['https://www.googleapis.com/auth/userinfo.email']
     },

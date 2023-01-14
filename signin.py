@@ -7,11 +7,12 @@ from authomatic.adapters import Webapp2Adapter
 from webapp2_extras import securecookie
 
 import config
+import app_secrets
 
 # Instantiate Authomatic.
-authomatic = Authomatic(config=config.CONFIG, secret=config.SECRET)
+authomatic = Authomatic(config=config.CONFIG, secret=app_secrets.SECRET)
 
-COOKIES = securecookie.SecureCookieSerializer(config.SECRET)
+COOKIES = securecookie.SecureCookieSerializer(app_secrets.SECRET)
 
 # Create a simple request handler for the login procedure.
 class Login(webapp2.RequestHandler):

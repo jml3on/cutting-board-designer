@@ -38,7 +38,7 @@ JINJA_ENVIRONMENT = jinja2.Environment(
     extensions=['jinja2.ext.autoescape'],
     autoescape=True)
 
-COOKIES = securecookie.SecureCookieSerializer(app_secrets.GAE_APP_SECRET)
+COOKIES = securecookie.SecureCookieSerializer(app_secrets.SECRET)
 
 class BoardSpecs(db.Model):
   spec = db.StringProperty()
