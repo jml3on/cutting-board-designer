@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en" ng-app="cbApp">
+  <head>
+    <meta charset="utf-8">
+    <title>My Boards</title>
+
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css"/>
+    <link rel="stylesheet" href="/lib/jquery-ui/themes/smoothness/jquery-ui.css"/>
+    <script type="text/javascript" src="/lib/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="/lib/jquery-ui/jquery-ui.min.js"></script>
+    
+    <script type="text/javascript" src="/lib/angular/angular.min.js"></script>
+
+    <script type="text/javascript" src="/lib/angular-bootstrap/ui-bootstrap.min.js"></script>
+
+
+
+    <script src="js/sprite.js"></script>
+    <script src="js/board.js"></script>
+    <script src="js/gallery.js"></script>
+
+  </head>
+    <body ng-controller="GalleryController">
+      <div role="tabpanel">
+	
+	<!-- Nav tabs -->
+	<ul class="nav nav-tabs" role="tablist">
+	  <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
+	  <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
+	  <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
+	  <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
+	</ul>
+	
+	<!-- Tab panes -->
+	<div class="tab-content">
+	  <div role="tabpanel" class="tab-pane active" id="home">home</div>
+	  <div role="tabpanel" class="tab-pane" id="profile">profile</div>
+	  <div role="tabpanel" class="tab-pane" id="messages">messages</div>
+	  <div role="tabpanel" class="tab-pane" id="settings">settings</div>
+	</div>
+	
+      </div>
+      
+  </body>
+</html> 

@@ -1,0 +1,3 @@
+[submodule "submodules/authomatic"]
+	path = submodules/authomatic
+	url = https://github.com/authomatic/authomatic.git

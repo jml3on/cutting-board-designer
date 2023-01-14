@@ -1,0 +1,148 @@
+
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="col-lg-2">
+      
+      
+      <div class="panel panel-default">
+      	<div class="panel-heading">
+	  <h4>Strips &nbsp; &nbsp; &nbsp;
+	    <button ng-click="addStrip()" type="submit" class="btn btn-primary" ng-disabled="!selectedWood">
+	      <i class="glyphicon glyphicon-plus"></i> 
+	    </button>
+	    <button ng-model="button" ng-click="deleteSelectedStrips()" type="submit" class="btn btn-danger" ng-disabled="!selectedStrips">
+	      <i class="glyphicon glyphicon-minus"></i>
+	    </button>
+	  </h4>
+	</div>
+        <form name="strips" class="panel-body form-horizontal container-fuild" role="form">
+          <div class="row-fuild form-group">
+	    <label class="col-lg-6 control-label" for="stripWidth">Width</label>
+	    <div class="col-lg-4 input-group" ng-class="{'has-error': strips.stripWidth.$invalid, 'has-success': !strips.stripWidth.$invalid}">
+              <input ng-model="stripWidth"  ng-change="stripWidthChange()"  ng-pattern="/\d*\.?\d+/" name="lumberLength" type="text" class="form-control" placeholder="1.0"/>
+	    </div>
+          </div>
+	  
+	  <div class="btn-group container-fluid">
+	    <label class="col-lg-6 btn btn-default" ng-model="selectedWood" btn-radio="'maple'">
+	      <img class="img-rounded" src="/assets/images/hard-maple.jpg" width="50" height="50"/><br/>
+	      <span class="label label-default">Maple</span>
+	    </label>
+	    
+	    <label class="col-lg-6 btn btn-default" ng-model="selectedWood" btn-radio="'purpleheart'"><img class="img-rounded" src="/assets/images/purpleheart.jpg" width="50" height="50"/>
+	      <br/>
+	      <span class="label label-default">Purpleheart</span>
+	    </label>
+	    
+	    <label class="col-lg-6 btn btn-default" ng-model="selectedWood" btn-radio="'walnut'"><img class="img-rounded" src="/assets/images/black-walnut.jpg" width="50" height="50"/>
+	      <br/>
+	      <span class="label label-default">Black Walnut</span>
+	    </label>
+	    
+	    <label class="col-lg-6 btn btn-default" ng-model="selectedWood" btn-radio="'jatoba'"><img class="img-rounded" src="/assets/images/jatoba.jpg" width="50" height="50"/>
+	      <br/>
+	      <span class="label label-default">Jatoba</span>
+	    </label>
+	    
+	    <label class="col-lg-6 btn btn-default" ng-model="selectedWood" btn-radio="'mahogany'"><img class="img-rounded" src="/assets/images/mahogany.jpg" width="50" height="50"/>
+	      <br/>
+	      <span class="label label-default">Mahogany</span>
+	    </label>
+	    
+	    <label class="col-lg-6 btn btn-default" ng-model="selectedWood" btn-radio="'yellowheart'"><img class="img-rounded" src="/assets/images/yellowheart.jpg" width="50" height="50"/>
+	      <br/>
+	      <span class="label label-default">Yellowheart</span>
+	    </label>
+	    
+	    <label class="col-lg-6 btn btn-default" ng-model="selectedWood" btn-radio="'cherry'"><img class="img-rounded" src="/assets/images/cherry.jpg" width="50" height="50"/>
+	      <br/>
+	      <span class="label label-default">Cherry</span>
+	    </label>
+	    
+	    <label class="col-lg-6 btn btn-default" ng-model="selectedWood" btn-radio="'padauk'"><img class="img-rounded" src="/assets/images/padauk.jpg" width="50" height="50"/>
+	      <br/>
+	      <span class="label label-default">Padauk</span>
+	    </label>
+	    
+	    <label class="col-lg-6 btn btn-default" ng-model="selectedWood" btn-radio="'white-oak'"><img class="img-rounded" src="/assets/images/white-oak.jpg" width="50" height="50"/>
+	      <br/>
+	      <span class="label label-default">White Oak</span>
+	    </label>
+
+	  </div>
+          
+  	</form>
+      </div>
+    </div>
+  </div>
+  
+
+  <div class="col-lg-8">
+    <div class="scene">
+      <div id="longGrain"></div>
+      <div id="endGrain"></div>
+    </div>
+  </div>
+
+  
+
+  <div class="col-lg-2">
+    
+    
+    <div class="panel panel-default">
+      <div class="panel-heading"><h4>Stock</h4></div>
+      <form name="stock" class="panel-body form-horizontal container-fuild" role="form">
+        <div class="row-fuild form-group">
+	  <label class="col-lg-6 control-label" for="lumberLength">Length</label>
+	  <div class="col-lg-4 input-group" ng-class="{'has-error': stock.lumberLength.$invalid, 'has-success': !stock.lumberLength.$invalid}">
+            <input ng-model="lumberLength"  ng-change="lumberChange()" ng-pattern="/^\d*\.?\d+$/" name="lumberLength" type="text" class="form-control" placeholder="LumberLength" required/>
+	  </div>
+        </div>
+	
+        <div class="row-fuild form-group">
+	  <label class="col-lg-6 control-label" for="lumberThickness">Thickness</label>
+	  <div class="col-lg-4 input-group" ng-class="{'has-error': stock.lumberThickness.$invalid, 'has-success': !stock.lumberThickness.$invalid}">
+            <input ng-model="lumberThickness" ng-change="lumberChange()" ng-pattern="/^\d*\.?\d*$/" name="lumberThickness" type="text" class="form-control" placeholder="1.625" required/>
+	  </div>
+        </div>
+        <div class="row-fuild form-group">
+	  <label class="col-lg-6 control-label" for="bladeKerf">Blade Kerf</label>
+	  <div class="col-lg-4 input-group" ng-class="{'has-error': stock.bladeKerf.$invalid, 'has-success': !stock.bladeKerf.$invalid}">
+            <input ng-model="bladeKerf" ng-change="lumberChange()" ng-pattern="/^\d*\.?\d+$/" name="bladeKerf" type="text" class="form-control" placeholder="0.125" required/>
+	  </div>
+        </div>
+      </form>
+    </div>
+
+
+    <div class="panel panel-default">
+      <div class="panel-heading"><h4>Board</h4></div>
+      
+      <form name="board" class="panel-body form-horizontal container-fuild" role="form">
+        <div class="row-fuild form-group">
+	  <label class="col-lg-6 control-label" for="boardThickness">Thickness</label>
+	  <div class="col-lg-4 input-group" ng-class="{'has-error': board.boardThickness.$invalid, 'has-success': !board.boardThickness.$invalid}">
+            <input ng-model="boardThickness"  ng-change="boardChange()" ng-pattern="/^\d*\.?\d*$/" name="boardThickness" type="text" class="form-control" placeholder="1.25" required/>
+	  </div>
+	</div>
+        <div class="row-fuild form-group">
+	  <label class="col-lg-6 control-label" for="boardLength">Length</label>
+	  <div class="col-lg-4 input-group" ng-class="{'has-error': board.boardThickness.$invalid, 'has-success': !board.boardThickness.$invalid}">
+            <input ng-model="boardLength"  ng-change="boardChange()" ng-pattern="/^\d*\.?\d*$/" name="boardLength" type="text" class="form-control" placeholder="18" disabled/>
+	  </div>
+        </div>
+        <div class="row-fuild form-group">
+	  <label class="col-lg-6 control-label" for="boardWidth">Width</label>
+	  <div class="col-lg-4 input-group" ng-class="{'has-error': board.boardThickness.$invalid, 'has-success': !board.boardThickness.$invalid}">
+            <input ng-model="boardWidth"  ng-change="boardChange()" ng-pattern="/^\d*\.?\d*$/" name="boardWidth" type="text" class="form-control" placeholder="18" disabled/>
+	  </div>
+        </div>
+	<div>
+	  <button ng-click="saveSpec()" type="submit" class="btn btn-primary" ng-disabled="!boardModified"> 
+	    <i class="glyphicon glyphicon-floppy-save"></i> Save
+	  </button>
+	</div>
+      </form>
+    </div>
+  </div>
+</div>

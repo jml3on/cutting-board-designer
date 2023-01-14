@@ -1,0 +1,58 @@
+
+<html> 
+<head> 
+ <meta http-equiv="Content-Type" content="text/html; 
+charset=UTF-8"> 
+ <title>A Sample Test Page</title> 
+    <link rel="stylesheet" type="text/css" href="/lib/jsunit/css/jsUnitStyle.css">
+  <script type="text/javascript" src="/lib/jsunit/app/jsUnitCore.js"></script>
+  <script type="text/javascript" src="/lib/pixi/pixi.dev.js"></script>
+  <script type="text/javascript" src="/app/js/board.js"/></script> 
+
+</head> 
+<body> 
+
+<div id='scene'/>
+<script type="text/javascript" charset="utf-8"> 
+function testNumSlices0() { 
+  var container = new PIXI.DisplayObjectContainer(1000, 1000);
+  var board = new Board(container);
+
+  board.lumberThickness = 0.5;
+  board.lumberLength = 1;
+  board.bladeKerf = 0.125;
+  board.boardThickness = 1;
+  board.redraw();
+  assertEquals(0, board.numSlices);
+  assertEquals(0, board.boardLength);
+} 
+
+function testNumSlices1() { 
+  var container = new PIXI.DisplayObjectContainer(1000, 1000);
+  var board = new Board(container);
+
+  board.lumberThickness = 1;
+  board.lumberLength = 1;
+  board.bladeKerf = 0.125;
+  board.boardThickness = 1;
+  board.redraw();
+  assertEquals(1, board.numSlices);
+  assertEquals(1, board.boardLength);
+} 
+
+function testNumSlicesMany() { 
+  var container = new PIXI.DisplayObjectContainer(1000, 1000);
+  var board = new Board(container);
+
+  board.lumberThickness = 1;
+  board.lumberLength = 2.125;
+  board.bladeKerf = 0.125;
+  board.boardThickness = 1;
+  board.redraw();
+  assertEquals(2, board.numSlices);
+  assertEquals(2, board.boardLength);
+} 
+</script> 
+
+</body> 
+</html>

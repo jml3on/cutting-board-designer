@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>PIXI Test</title>
+    <script src="/lib/pixi/pixi.dev.js"></script>
+  </head>
+  <body id="scene">
+    <script>
+
+      var stage = new PIXI.Stage(0xffffff);
+      var renderer = PIXI.autoDetectRenderer();
+      var container = new PIXI.DisplayObjectContainer(800, 600);
+      stage.addChild(container);
+      document.body.appendChild(renderer.view);
+      
+      var texture1 = PIXI.Texture.fromImage("/app/assets/hard-maple50x50.jpg");
+      var texture2 = PIXI.Texture.fromImage("/app/assets/black-walnut50x50.jpg");
+      
+      function clickMe(data) {
+        console.log(data);
+        if (data.target.texture == texture1) {
+          data.target.setTexture(texture2);
+        } else {
+          data.target.setTexture(texture1);
+        }
+      }
+      
+      // smaller than the texture
+      var tile = new PIXI.TilingSprite(texture1, 20, 20);
+      tile.position.x = 10;
+      tile.position.y = 10;
+      tile.hitarea
+      tile.interactive = true;
+      tile.click = clickMe;
+      container.addChild(tile);
+      
+      var tile = new PIXI.Sprite(texture1);
+      tile.position.x = 150;
+      tile.position.y = 10;
+      tile.interactive = true;
+      tile.click = clickMe;
+      container.addChild(tile);
+      
+      // larger than the texture
+      var tile = new PIXI.TilingSprite(texture1, 100, 100);
+      tile.position.x = 300;
+      tile.position.y = 10;
+      tile.interactive = true;
+      tile.click = clickMe;
+      container.addChild(tile);
+      
+      function animate() {
+      requestAnimFrame(animate);
+      renderer.render(stage);
+      }
+      requestAnimFrame(animate);
+      
+    </script>
+  
+  </body>
+</html>

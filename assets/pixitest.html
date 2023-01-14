@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>PIXI Test</title>
+    <script src="/lib/pixi/pixi.dev.js"></script>
+  </head>
+  <body id="scene">
+
+    <script>
+
+    var stage = new PIXI.Stage(0xffffff);
+    var renderer = PIXI.autoDetectRenderer();
+    var container = new PIXI.DisplayObjectContainer(800, 600);
+    stage.addChild(container);
+    document.body.appendChild(renderer.view);
+    
+    var texture1 = PIXI.Texture.fromImage("/app/assets/hard-maple50x50.jpg");
+    var texture2 =  PIXI.Texture.fromImage("/app/assets/purpleheart50x50.jpg");
+
+    var setSprite = function(data) {
+      console.log(data.originalEvent);
+      if (data.target.texture == texture1) {
+        data.target.setTexture(texture2);
+      } else {
+        data.target.setTexture(texture1);
+      }
+    }
+
+    var sprite = new PIXI.Sprite(texture1);
+    sprite.position.x = 100;
+    sprite.position.y = 100;
+    sprite.interactive = true;
+    container.addChild(sprite);
+    sprite.click = setSprite;
+
+    var tile = new PIXI.TilingSprite(texture1, 500, 50);
+    tile.position.x = 100;
+    tile.position.y = 200;
+    tile.interactive = true;
+    tile.hitarea = new PIXI.Rectangle(100, 200, 500, 50);
+    container.addChild(tile);
+    tile.click = setSprite;
+    
+    function animate() {
+        renderer.render(stage);
+    }
+
+    window.setInterval(animate, 100);
+
+    </script>
+  
+  </body>
+</html>

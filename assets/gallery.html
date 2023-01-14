@@ -1,0 +1,25 @@
+
+
+<div class="container">
+  <div class="row panel panel-default">
+    <div class="panel-heading">
+      <h4>My Boards</h4>	<a href="/New/">
+      <button type="button" class="btn btn-success">
+	<span class="glyphicon glyphicon-plus">
+	  New
+      </span></button></a>
+    </div>
+    <div class="container-fluid">
+      
+      
+      <div class="endGrain col-md-3" ng-repeat="entry in gallery | filter:query">
+	<a href="Edit/{{entry.id}}/{{entry.spec}}"><div id="{{entry.id}}">
+	</div></a>
+	{{entry.label}} &nbsp;&nbsp;&nbsp;
+	<button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-trash" ng-click="deleteSpec(entry)"></span></button>
+      </div>
+      
+      
+    </div>
+  </div>
+</div>
