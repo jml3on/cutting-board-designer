@@ -7,8 +7,8 @@ handlers:
   static_files: favicon.ico
   upload: favicon\.ico
 
-- url: /lib/
-  static_dir: lib
+- url: /public/
+  static_dir: public
 
 - url: /assets/
   static_dir: assets
