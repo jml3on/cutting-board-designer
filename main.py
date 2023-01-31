@@ -27,7 +27,8 @@ from webapp2_extras import securecookie
 import config
 from signin import *
 
-# Need a local file containing the secrets.
+# Need a local app_secrets.py file containing the secrets.
+# Use app_secrets.tmpl as a template.
 import app_secrets
 
 from google.appengine.ext import db

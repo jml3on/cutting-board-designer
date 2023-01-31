@@ -2,7 +2,8 @@
 
 from authomatic.providers import oauth2
 
-# Need a local file containing the secrets.
+# Need a local app_secrets.py file containing the secrets.
+# Use app_secrets.tmpl as a template.
 import app_secrets
 
 CONFIG = {

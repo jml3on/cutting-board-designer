@@ -7,6 +7,8 @@ from authomatic.adapters import Webapp2Adapter
 from webapp2_extras import securecookie
 
 import config
+# Need a local app_secrets.py file containing the secrets.
+# Use app_secrets.tmpl as a template.
 import app_secrets
 
 # Instantiate Authomatic.
