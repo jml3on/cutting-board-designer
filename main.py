@@ -15,6 +15,8 @@
 # limitations under the License.
 #
 
+from __future__ import absolute_import
+from __future__ import print_function
 import datetime
 import json
 import os
@@ -75,11 +77,11 @@ class saveSpecHandler(BaseHandler):
     user = self.SignedInIdentity()
     if user is None: return
 	
-    print(self.request.body);
+    print((self.request.body));
     dict = json.loads(self.request.body);
     entry = BoardSpecs()
     if 'id' in dict:
-      id = long(dict['id']);
+      id = int(dict['id']);
       entry = BoardSpecs(key=db.Key.from_path('BoardSpecs', id));
       entry.id = id;
     entry.spec = json.dumps(dict['spec'])
@@ -96,9 +98,9 @@ class deleteSpecHandler(BaseHandler):
     user = self.SignedInIdentity()
     if user is None: return
 	
-    print(self.request.body);
+    print((self.request.body));
     dict = json.loads(self.request.body);
-    id = long(dict['id']);
+    id = int(dict['id']);
     print(id);
     entry = BoardSpecs(key=db.Key.from_path('BoardSpecs', id));
     entry.delete()
@@ -112,7 +114,7 @@ class listSpecsHandler(BaseHandler):
 
     time.sleep(1)
     entries = db.GqlQuery("SELECT * from BoardSpecs ORDER BY date DESC")
-    print('list ', json.dumps([db.to_dict(e) for e in entries]))
+    print(('list ', json.dumps([db.to_dict(e) for e in entries])))
     self.response.out.write(json.dumps([db.to_dict(e) for e in entries]))
 
 ROUTES = [

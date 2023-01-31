@@ -1,5 +1,6 @@
 # main.py
 
+from __future__ import absolute_import
 import webapp2
 import webapp2_extras
 from authomatic import Authomatic

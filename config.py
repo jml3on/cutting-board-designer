@@ -1,5 +1,6 @@
 # config.py
 
+from __future__ import absolute_import
 from authomatic.providers import oauth2
 
 # Need a local app_secrets.py file containing the secrets.
