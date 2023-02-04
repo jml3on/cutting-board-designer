@@ -3,3 +3,4 @@
 .DS_Store
 *secrets.py*
 public/*
+lib/*

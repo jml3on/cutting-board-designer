@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 #
 # Copyright 2007 Google Inc.
 #
@@ -26,6 +26,8 @@ import jinja2
 import webapp2
 from webapp2_extras import securecookie
 
+import google.appengine.api
+
 import config
 from signin import *
 
@@ -38,7 +40,6 @@ from google.appengine.api import namespace_manager
 
 JINJA_ENVIRONMENT = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
-    extensions=['jinja2.ext.autoescape'],
     autoescape=True)
 
 COOKIES = securecookie.SecureCookieSerializer(app_secrets.SECRET)
@@ -127,3 +128,4 @@ ROUTES = [
 ]
 
 app = webapp2.WSGIApplication(ROUTES, debug=True)
+app = google.appengine.api.wrap_wsgi_app(app)
