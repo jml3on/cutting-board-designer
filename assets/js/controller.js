@@ -27,8 +27,12 @@ angular.module('cbApp', ['ngRoute', "ui.bootstrap"])
 				controller: 'CBController',
 				caseInsensitiveMatch: true,
 			})
-			.when('/Help', {
-				templateUrl: '/assets/help.html',
+			.when('/About', {
+				templateUrl: '/assets/about.html',
+				caseInsensitiveMatch: true,
+			})
+			.when('/Privacy', {
+				templateUrl: '/assets/privacy.html',
 				caseInsensitiveMatch: true,
 			})
 			;
